@@ -7,6 +7,7 @@ import FirestorePage from '../pages/FirestorePage/FirestorePage';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import orange from '@material-ui/core/colors/orange';
 import SettingsDialog from './SettingsDialog/SettingsDialog';
+import BottomBar from './BottomBar/BottomBar';
 
 
 const theme = createMuiTheme({
@@ -21,6 +22,7 @@ const Application = () => (
         <TopBar />
         <SettingsDialog/>
         <FirestorePage/>
+        <BottomBar/>
     </ThemeProvider>
 
 );
