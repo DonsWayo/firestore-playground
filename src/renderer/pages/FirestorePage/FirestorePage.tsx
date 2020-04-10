@@ -49,6 +49,8 @@ db.collection("users").get().then((querySnapshot) => {
 });
 `;
 
+const defaultOutput = `{"message": "Right Click to format (actually only support json)"}`;
+
 function FirestorePage(props: Props) {
 
     function log(value: any) {
@@ -61,7 +63,7 @@ function FirestorePage(props: Props) {
     }
 
     useEffect(() => {
-        AppStore.codeOutput = `{"message": "Right Click to format (actually only support json)"}`
+        AppStore.codeOutput = defaultOutput;
         AppStore.codeValue = defaultText;
        if (AppStore.run > 0) {
         run();
