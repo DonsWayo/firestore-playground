@@ -3,7 +3,6 @@ import * as React from 'react';
 import TopBar from './TopBar/TopBar';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Switch, Route } from 'react-router-dom';
-import Routes from '../Routes';
 import FirestorePage from '../pages/FirestorePage/FirestorePage';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import orange from '@material-ui/core/colors/orange';

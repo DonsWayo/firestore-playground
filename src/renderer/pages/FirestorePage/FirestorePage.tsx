@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ReactElement, useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Editor from '../../components/Editor/Editor';
 import { Grid, Fab } from '@material-ui/core';
 import { view } from '@risingstack/react-easy-state';
@@ -8,9 +8,6 @@ import { AppStore } from '../../store/AppStore';
 const firebase = require("firebase");
 // Required for side-effects
 require("firebase/firestore");
-
-
-
 
 
 const db = firebase.firestore();
