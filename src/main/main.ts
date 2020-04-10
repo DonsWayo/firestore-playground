@@ -7,8 +7,9 @@ let win: BrowserWindow | null;
 const createWindow = async () => {
 
     win = new BrowserWindow({ 
-        width: 800, 
+        width: 1000, 
         height: 600,
+        minWidth: 900,
         webPreferences: {
             nodeIntegration: true
         }
