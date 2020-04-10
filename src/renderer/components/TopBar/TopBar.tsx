@@ -93,16 +93,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function TopBar() {
   const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   const reload = ()=>{
     getCurrentWindow().reload()
@@ -113,22 +103,8 @@ export default function TopBar() {
       <CssBaseline />
       <AppBar
         position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
+        className={classes.appBar}>
         <Toolbar>
-          {/* <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton> */}
           <Fab color="primary" aria-label="add" className={classes.fab} onClick={AppStore.increment}>
             <PlayIcon className={classes.icon} />
           </Fab>
@@ -144,38 +120,8 @@ export default function TopBar() {
 
         </Toolbar>
       </AppBar>
-      {/* <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-            <Link to={'/'} style={{ textDecoration: 'none' }}>
-            <ListItem button key={"Firestore"}>
-              <ListItemIcon>{<StorageIcon />}</ListItemIcon>
-              <ListItemText primary={"Firestore"} />
-            </ListItem>
-            </Link>
-          </List>
-      </Drawer> */}
       <main className={classes.content}>
-
         <div className={classes.toolbar} />
-
       </main>
     </div>
   );
