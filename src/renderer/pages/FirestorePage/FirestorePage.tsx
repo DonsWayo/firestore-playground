@@ -6,12 +6,10 @@ import { view } from '@risingstack/react-easy-state';
 import { AppStore } from '../../store/AppStore';
 
 const firebase = require("firebase");
-// Required for side-effects
 require("firebase/firestore");
 
 
 const db = firebase.firestore();
-//var log = AppStore.codeOutput;
 
 interface Props {
 
