@@ -6,15 +6,12 @@ import { Switch, Route } from 'react-router-dom';
 import FirestorePage from '../pages/FirestorePage/FirestorePage';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import orange from '@material-ui/core/colors/orange';
+import SettingsDialog from './SettingsDialog/SettingsDialog';
 
 
 const theme = createMuiTheme({
     palette: {
-        primary: orange,
-        text: {
-            primary: "#ffffff",
-            secondary: "#00000"
-        }
+        primary: orange
     }
 });
 
@@ -22,6 +19,7 @@ const Application = () => (
     <ThemeProvider theme={theme}>
         <CssBaseline />
         <TopBar />
+        <SettingsDialog/>
         <Switch>
             <Route exact path={"/"} component={FirestorePage}></Route>
         </Switch>

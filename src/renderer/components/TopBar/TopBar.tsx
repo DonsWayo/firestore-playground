@@ -98,6 +98,10 @@ export default function TopBar() {
     getCurrentWindow().reload()
   }
 
+  const openSettings = () => {
+    AppStore.showSettingsDialog = true;
+  }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -114,10 +118,9 @@ export default function TopBar() {
           <IconButton color="primary" onClick={reload}>
             <ReplayIcon className={classes.icon}  />
           </IconButton>
-          <IconButton color="primary">
+          <IconButton color="primary" onClick={openSettings}>
             <SettingsIcon className={classes.icon}  />
           </IconButton>
-
         </Toolbar>
       </AppBar>
       <main className={classes.content}>

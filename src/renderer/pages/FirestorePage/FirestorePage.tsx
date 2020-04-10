@@ -9,7 +9,19 @@ const firebase = require("firebase");
 require("firebase/firestore");
 
 
-const db = firebase.firestore();
+let db;
+
+if (!AppStore.apiKey) {
+    console.log('is null')
+    AppStore.showSettingsDialog = true
+} else {
+    firebase.initializeApp({
+        apiKey: AppStore.apiKey,
+        authDomain: AppStore.authDomain,
+        projectId: AppStore.projectId
+    });
+    db = firebase.firestore();
+}
 
 interface Props {
 
@@ -63,6 +75,7 @@ function FirestorePage(props: Props) {
     useEffect(() => {
         AppStore.codeOutput = defaultOutput;
         AppStore.codeValue = defaultText;
+        console.log(AppStore.apiKey)
        if (AppStore.run > 0) {
         run();
        }

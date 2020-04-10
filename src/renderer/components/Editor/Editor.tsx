@@ -23,7 +23,7 @@ export default function Editor(props: Props) {
         width={props.width}
         height={props.height}
         language={props.language}
-        theme="vs-light"
+        theme="vs-dark"
         options={props.options}
         onChange={(e) => onChange(e)}
       />
