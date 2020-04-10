@@ -30,6 +30,7 @@ interface Props {
 }
 
 const optionsOne = {
+    automaticLayout: true,
     selectOnLineNumbers: false,
     formatOnPaste: true,
     minimap: {
@@ -38,6 +39,7 @@ const optionsOne = {
 };
 
 const optionsTwo = {
+    automaticLayout: true,
     selectOnLineNumbers: false,
     formatOnPaste: true,
     lineNumbers: 'off',
