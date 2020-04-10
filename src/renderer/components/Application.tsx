@@ -20,9 +20,7 @@ const Application = () => (
         <CssBaseline />
         <TopBar />
         <SettingsDialog/>
-        <Switch>
-            <Route exact path={"/"} component={FirestorePage}></Route>
-        </Switch>
+        <FirestorePage/>
     </ThemeProvider>
 
 );

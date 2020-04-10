@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import './app.scss';
 import Application from './components/Application';
-import { BrowserRouter } from 'react-router-dom';
 
 
 // Create main element
@@ -29,9 +28,7 @@ document.body.appendChild(materialIcons);
 const render = (Component: () => JSX.Element) => {
     ReactDOM.render(
             <AppContainer>
-                <BrowserRouter>
                     <Component />
-                </BrowserRouter>
             </AppContainer>,
         mainElement
     );
