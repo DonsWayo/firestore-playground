@@ -15,11 +15,13 @@ if (!AppStore.apiKey) {
     console.log('is null')
     AppStore.showSettingsDialog = true
 } else {
-    firebase.initializeApp({
-        apiKey: AppStore.apiKey,
-        authDomain: AppStore.authDomain,
-        projectId: AppStore.projectId
-    });
+    if (firebase.apps.length === 0) {
+        firebase.initializeApp({
+            apiKey: AppStore.apiKey,
+            authDomain: AppStore.authDomain,
+            projectId: AppStore.projectId
+        });
+    }
     db = firebase.firestore();
 }
 
