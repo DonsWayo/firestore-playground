@@ -9,7 +9,6 @@ import orange from '@material-ui/core/colors/orange';
 import SettingsDialog from './SettingsDialog/SettingsDialog';
 import BottomBar from './BottomBar/BottomBar';
 
-
 const theme = createMuiTheme({
     palette: {
         primary: orange

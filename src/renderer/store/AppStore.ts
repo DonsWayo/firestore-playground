@@ -4,6 +4,7 @@ import * as packageJson from '../../../package.json';
 export const AppStore = store({ 
     codeValue: "",
     codeOutput: "",
+    isLoadingOutput: false,
     run: 0,
     firebaseVersion: packageJson.dependencies.firebase,
     appVersion: packageJson.version,

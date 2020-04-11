@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useEffect } from 'react'
 import Editor from '../../components/Editor/Editor';
-import { Grid, Fab } from '@material-ui/core';
+import { Grid, Fab, LinearProgress } from '@material-ui/core';
 import { view } from '@risingstack/react-easy-state';
 import { AppStore } from '../../store/AppStore';
 
@@ -72,14 +72,14 @@ function FirestorePage(props: Props) {
         AppStore.codeOutput = value;
     }
     async function run() {
+       AppStore.isLoadingOutput = true;
        await eval(AppStore.codeValue);
-       console.log('run!');
+       AppStore.isLoadingOutput = false;
     }
 
     useEffect(() => {
         AppStore.codeOutput = defaultOutput;
         AppStore.codeValue = defaultText;
-        console.log(AppStore.apiKey)
        if (AppStore.run > 0) {
         run();
        }
@@ -87,6 +87,9 @@ function FirestorePage(props: Props) {
 
     return (
         <Grid container>
+             <Grid item xs={12}>
+                { AppStore.isLoadingOutput ? <LinearProgress/> : <></>}
+            </Grid>
             <Grid item xs={6}>
                 <Editor height="100vh" width="100%" language="javascript" options={optionsOne}  value={defaultText}/>
             </Grid>
