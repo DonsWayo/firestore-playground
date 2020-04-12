@@ -4,10 +4,8 @@ import Editor from '../../components/Editor/Editor';
 import { Grid, Fab, LinearProgress } from '@material-ui/core';
 import { view } from '@risingstack/react-easy-state';
 import { AppStore } from '../../store/AppStore';
-
-const firebase = require("firebase");
-require("firebase/firestore");
-
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
 
 let db;
 
@@ -56,32 +54,43 @@ const optionsTwo = {
 };
 
 const defaultText = `//use log() to get the response in the second panel
+let result = [];
 db.collection("users").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-        log(JSON.stringify(doc.data()))
+        result.push(doc.data())
     });
+    log(result);
 });
+
 `;
 
-const defaultOutput = `{"message": "Right Click to format (actually only support json)"}`;
+const defaultOutput = ``;
 
 function FirestorePage(props: Props) {
 
     function log(value: any) {
         console.log(value)
-        AppStore.codeOutput = value;
+        AppStore.codeOutput = JSON.stringify(value);
     }
+
+    function logArray(value: any) {
+        console.log(value)
+        AppStore.codeOutput = JSON.stringify(value);
+    }
+
     async function run() {
        AppStore.isLoadingOutput = true;
+       console.log(AppStore.codeValue)
        await eval(AppStore.codeValue);
+       console.log("finish");
        AppStore.isLoadingOutput = false;
     }
 
-    useEffect(() => {
-        AppStore.codeOutput = defaultOutput;
-        AppStore.codeValue = defaultText;
+    useEffect(() => {    
        if (AppStore.run > 0) {
         run();
+       } else {
+        AppStore.codeValue = defaultText;
        }
     }, [AppStore.run])
 
@@ -91,10 +100,10 @@ function FirestorePage(props: Props) {
                 { AppStore.isLoadingOutput ? <LinearProgress/> : <></>}
             </Grid>
             <Grid item xs={6}>
-                <Editor height="100vh" width="100%" language="javascript" options={optionsOne}  value={defaultText}/>
+                <Editor height="100vh" width="100%" language="javascript" options={optionsOne}  value={defaultText} editorType="code"/>
             </Grid>
             <Grid item xs={6}>
-                <Editor height="100vh" width="100%" language="json" options={optionsTwo} value={AppStore.codeOutput}/>
+                <Editor height="100vh" width="100%" language="json" options={optionsTwo} value={AppStore.codeOutput} editorType="output"/>
             </Grid>
         </Grid>
     )

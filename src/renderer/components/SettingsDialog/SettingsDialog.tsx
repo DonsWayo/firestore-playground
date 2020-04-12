@@ -34,10 +34,8 @@ function SettingsDialog() {
         setState({ ...state, open: AppStore.showSettingsDialog });
     };
 
-    const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { id, value } = e.target;
-        console.log(id)
-        setState({ ...state, [id]: value });
+    const changeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, [event.target.id]: event.target.value });
     }
 
     const handleThemeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,7 +76,7 @@ function SettingsDialog() {
                     label="apiKey"
                     type="text"
                     fullWidth
-                    value={AppStore.apiKey}
+                    value={state.apiKey}
                     onChange={changeValue}
                 />
                 <TextField
@@ -88,7 +86,7 @@ function SettingsDialog() {
                     label="authDomain"
                     type="text"
                     fullWidth
-                    value={AppStore.authDomain}
+                    value={state.authDomain}
                     onChange={changeValue}
                 />
                 <TextField
@@ -98,11 +96,11 @@ function SettingsDialog() {
                     label="projectId"
                     type="text"
                     fullWidth
-                    value={AppStore.projectId}
+                    value={state.projectId}
                     onChange={changeValue}
                 />
                 <FormControlLabel
-                    control={<Switch checked={state.darkEditor} onChange={handleThemeChange} name="darkEditor" />}
+                    control={<Switch checked={state.darkEditor} onChange={handleThemeChange} name="darkEditor" color="primary" />}
                     label="Dark Editor"
                 />
             </DialogContent>
