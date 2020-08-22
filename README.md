@@ -8,7 +8,7 @@
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/DonsWayo/firestore-playground/react)
 
 
-### A Desktop app to create firestore querys
+### A Desktop app to see your firestore databases with simple queries
 
 ![alt text](./images/screen-demo.gif "Screenshot")
 ![alt text](./images/image-settings.png "Screenshot")
