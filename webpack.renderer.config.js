@@ -64,11 +64,9 @@ module.exports = merge.smart(baseConfig, {
         ]
     },
     plugins: [
-        new ForkTsCheckerWebpackPlugin({
-            reportFiles: ['src/renderer/**/*']
-        }),
+        new ForkTsCheckerWebpackPlugin(),
         new webpack.NamedModulesPlugin(),
-        new HtmlWebpackPlugin({title: '🔥 Firestore Playground'}),
+        new HtmlWebpackPlugin({title: '🔥'}),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
         }),

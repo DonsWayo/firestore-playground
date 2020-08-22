@@ -36,7 +36,7 @@ export default function BottomBar() {
             Firebase Version: {AppStore.firebaseVersion}
           </Typography>
           <Typography variant="caption" color="inherit">
-            App Version: {AppStore.appVersion}-beta
+            App Version: {AppStore.appVersion}
           </Typography>
         </Toolbar>
       </AppBar>
